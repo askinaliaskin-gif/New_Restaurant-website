@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>New Restaurant · Spécialités turques</title>
+<meta name="description" content="New Restaurant, spécialités turques : kebab, dürüm, option végétarienne et Bento Box.">
+<link rel="icon" href="assets/logo.png">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#carte">Aller à la carte</a>
+<header id="hdr" class="hdr">
+  <a class="brand" href="#top" aria-label="New Restaurant, accueil"><img src="assets/logo.png" alt="" width="44" height="44"><span>New Restaurant</span></a>
+  <nav aria-label="Navigation principale">
+    <a href="#carte">La carte</a><a href="#restaurant" class="opt">Le restaurant</a><a href="#equipe" class="opt">Nous</a><a href="#venir">Nous trouver</a>
+  </nav>
+</header>
+<main id="top">
+<section id="hero" class="hero" aria-label="Présentation">
+  <div class="pin">
+    <canvas id="hbg" class="hbg" width="96" height="54" aria-hidden="true"></canvas>
+    <video id="hv" muted playsinline preload="auto" poster="assets/poster.jpg" aria-hidden="true" tabindex="-1"><source src="assets/hero.mp4" type="video/mp4"></video>
+    <img id="hstatic" class="hstatic" src="assets/kebab-static.jpg" alt="Bento Box kebab garnie de salade et de sauce tzatziki">
+    <div id="scrim" class="scrim"></div>
+    <div class="scene s1" data-scene="0"><h1>New Restaurant. Ton prochain kebab préféré.</h1><a class="btn" href="#carte">Découvrez la carte</a></div>
+    <div class="scene s2" data-scene="1"><p class="big">Couche après couche. À croquer&nbsp;!</p></div>
+    <div class="scene s3" data-scene="2"><p class="big">Et puis&nbsp;: du tzatziki par-dessus.</p></div>
+    <div class="scene s4" data-scene="3"><p class="big">Conçu pour vous. Servi avec le sourire.</p><a class="btn" href="#carte">Une petite faim&nbsp;?</a></div>
+  </div>
+</section>
+
+<section id="carte" class="cream">
+  <div class="wrap">
+    <h2>La carte</h2>
+    <p class="lead">Choisissez une catégorie pour voir les plats et les prix.</p>
+    <div id="catTabs" class="cats" role="tablist" aria-label="Catégories de la carte"></div>
+    <div id="catPanel" class="panel" role="tabpanel" tabindex="0" aria-live="polite"></div>
+  </div>
+</section>
+
+<section id="restaurant" class="dark">
+  <div class="wrap two">
+    <div><h2>Ton prochain Kebab préféré t'attend ici.</h2><p>Passez le seuil, installez-vous, commandez. On s'occupe du reste.</p><a class="btn" href="#venir">Nous trouver</a></div>
+    <figure id="shopFig"></figure>
+  </div>
+</section>
+
+<section id="equipe" class="cream">
+  <div class="wrap two rev">
+    <img src="assets/owners.jpg" alt="Les deux propriétaires, en tenue noire, debout au comptoir du restaurant" loading="lazy">
+    <div><h2>Servi avec le sourire.</h2>
+    <p>Voici les deux visages derrière le comptoir. Ils vous accueillent, préparent votre commande et vous la servent avec le sourire. Venez leur dire bonjour.</p></div>
+  </div>
+</section>
+
+<section id="avis" class="dark" aria-labelledby="avisT">
+  <div class="wrap">
+    <h2 id="avisT">Ils en parlent</h2>
+    <p class="lead" id="avisSum"></p>
+    <div class="car" id="car" role="region" aria-roledescription="carrousel" aria-label="Avis de nos clients sur Google Maps">
+      <div class="rvp" id="rvp"><div class="track" id="rtrack"></div></div>
+      <div class="ctrls"><button type="button" id="rPrev" aria-label="Avis précédent">←</button><button type="button" id="rPause" aria-pressed="false">Pause</button><button type="button" id="rNext" aria-label="Avis suivant">→</button></div>
+    </div>
+  </div>
+</section>
+
+<section id="venir" class="orange">
+  <div class="wrap">
+    <h2>Nous trouver</h2>
+    <div class="loc">
+      <div class="map" id="mapBox">
+        <img id="planImg" alt="" loading="lazy">
+        <div class="mapcta"><button type="button" class="btn" id="mapLoad">Afficher la carte interactive</button><small>Charge Google Maps, un service externe.</small></div>
+      </div>
+      <div class="locinfo">
+        <p class="eyebrow">New Restaurant</p>
+        <h3 data-cfg="visit.street"></h3>
+        <ul class="rows">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span><span data-cfg="visit.street"></span><br><span data-cfg="visit.city"></span></span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span id="phone"></span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Ouvert tous les jours · <span data-cfg="visit.hoursShort"></span></span></li>
+        </ul>
+        <div class="hrow"><span>Lundi – Dimanche</span><b data-cfg="visit.hoursShort"></b></div>
+        <div class="actions">
+          <a class="btn" id="callBtn">Appeler</a>
+          <a class="btn ghost" id="dirBtn">Itinéraire</a>
+          <a class="btn ghost" id="igBtn" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="fb">New Restaurant · Spécialités turques</p>
+    <nav aria-label="Pied de page"><a href="#contact">Contact</a><a href="#mentions">Mentions légales</a><a href="#donnees">Protection des données</a><a href="#top">Retour en haut ↑</a></nav>
+    <section id="contact"><h3>Contact</h3><p data-cfg="legal.contact"></p></section>
+    <section id="mentions"><h3>Mentions légales</h3><p data-cfg="legal.imprint"></p></section>
+    <section id="donnees"><h3>Protection des données</h3><p data-cfg="legal.privacy"></p></section>
+  </div>
+</footer>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
